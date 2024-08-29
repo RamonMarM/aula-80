@@ -1,5 +1,11 @@
-from flask import Blueprint
+from flask import Flask
 
-main = Blueprint('main', __name__)
+def create_app(config_name):
+    app = Flask(__name__)
 
-from . import views, errors
+    # Adicione suas configurações e inicializações aqui
+
+    from .main import main as main_blueprint
+    app.register_blueprint(main_blueprint)
+
+    return app
