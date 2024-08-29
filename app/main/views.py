@@ -3,6 +3,9 @@ from . import main
 from .. import db
 from ..templates.models import User  # Importação ajustada para a nova localização
 from .forms import NameForm
+from flask import Blueprint
+
+main = Blueprint('main', __name__)
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
